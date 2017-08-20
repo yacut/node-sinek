@@ -6,6 +6,8 @@
     "scripts": {
         "lint": "eslint .",
         "fix": "eslint --fix .",
+        "kafka:start": "./kafka-setup/start.sh",
+        "kafka:stop": "./kafka-setup/stop.sh",
         "test": "istanbul cover _mocha -- -R spec test/int/* && istanbul check-coverage --statements 50",
         "rd-lt": "NODE_ENV=production node ./perf/RDLoadTest.js"
     },

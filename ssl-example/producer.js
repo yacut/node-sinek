@@ -5,7 +5,7 @@ const producer = new Producer(require("./config.js"), ["test"], 1);
 
 producer.on("error", error => console.error(error));
 
-producer.connect().then(_ => {
+producer.connect().then(() => {
   console.log("connected.");
   setInterval(() => {
     console.log("send");

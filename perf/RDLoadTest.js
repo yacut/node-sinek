@@ -3,7 +3,7 @@ const {Kafka, PartitionDrainer} = require("../index.js");
 
 const logger = {
   //debug: msg => console.log("consumer: " + msg),
-  debug: msg => {}, //silence
+  debug: () => {}, //silence
   info: msg => console.log("consumer: " + msg),
   warn: msg => console.log("consumer: " + msg),
   error: msg => console.log("consumer: " + msg)
@@ -29,7 +29,7 @@ let pd = null;
 kafka.on("ready", () => {
   pd = new PartitionDrainer(kafka, 1, false);
   pd.disablePauseResume = true;
-  pd.drain(topicName, onMessage).then(_ => {console.log("load-test running.");}).catch(e => console.log(e));
+  pd.drain(topicName, onMessage).then(() => {console.log("load-test running.");}).catch(e => console.log(e));
 });
 
 let totalMsg = 0;

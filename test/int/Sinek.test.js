@@ -107,14 +107,14 @@ describe("Sinek INT", function(){
     const map = [];
     const me = [1,2,3,4,5,6,7,8,9,10];
     for(let i = 0; i < MESSAGE_COUNT / me.length; i++){
-      const batch = me.map(_ => JSON.stringify(DUMMY_MESSAGE));
+      const batch = me.map(() => JSON.stringify(DUMMY_MESSAGE));
       map.push(producer.send(TEST_TOPIC, batch));
     }
     return Promise.all(map);
   }
 
   it("should be able to publish messages", function(done){
-    populateQueue().then(_ => {
+    populateQueue().then(() => {
       expect(producer.getStats().totalPublished).to.be.equal(MESSAGE_COUNT);
       done();
     });

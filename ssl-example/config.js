@@ -2,7 +2,7 @@ const fs = require("fs");
 const config = {
   kafkaHost: "localhost:9093",
   logger: {
-    debug: _ => {},
+    debug: () => {},
     info: msg => console.log(msg),
     warn: msg => console.log(msg),
     error: msg => console.log(msg)
